@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include_once('src/php/dbh.inc.php')?>
 <html lang="en">
 <style>
   <?php include 'src/css/colleges.css'?>
@@ -30,44 +31,34 @@
             <button type="submit">Go</button>
             <button class="sort_by">sort by</button>
         </div>
-            <table id="collegelistTable">
-            <thead class="tablehead">
-                <tr>
-                    <th>Name of College</th>
-                    <th>State</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr onclick="window.location='src/php/collegeSite.php';">
-                    <td class="university-name">Boise State University</a>
-                    <td>Idaho</td>
-                    <td>March 20 - March 24</td>
-                </tr>
-                <tr>
-                    <td>University of Florida</td>
-                    <td>Florida</td>
-                    <td>March 13 - March 17</td>
-                </tr>
-                <tr>
-                    <td>University of California, Los Angeles</td>
-                    <td>California</td>
-                    <td>March 27 - March 31</td>
-                </tr>
-                <tr>
-                    <td>University of Colorado Boulder</td>
-                    <td>Colorado</td>
-                    <td>March 13 - March 20</td>
-                </tr>
-                <tr>
-                    <td>University of Hawaii at Manoa</td>
-                    <td>Hawaii</td>
-                    <td>March 6 - March 12</td>
-                </tr>
-            </tbody>
-        </table>
-
+    <table id="collegelistTable">
+        <thead class="tablehead">
+        <tr>
+        <th>Name of College</th>
+        <th>State</th>
+        <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+       <?php $sql = "SELECT *FROM collegelist;";
+        $result= mysqli_query($conn,$sql);
+        if($result ->num_rows> 0){
+            while($row = $result->fetch_assoc()){
+                echo "<tr><td onclick='goToCollegeSite(\"".$row["name"]."\",".$row["ID"].")'>".$row ["name"]."</td><td>".$row["stateID"]."</td><td>".$row["date"]."</td></tr>";
+            }
+        }
+        else{
+            echo "no Response";
+        }
+        ?>
+        </tbody>
+    </table>
     </div>
     <?php include "src/php/footer.php"; ?>  
+    <script>
+    function goToCollegeSite(collegeName,ID) {
+    window.location.href = "src/php/collegeSite.php?name=" + encodeURIComponent(collegeName)+"&id=" + encodeURIComponent(ID);
+    }
+    </script>
 </body>
 </html>
