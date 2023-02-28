@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+/* center the welcome text and description */
+.Banner{
+  /*height: auto;*/
+  height: 200px;
+  background: url('../../images/party_wallpaper.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.about {
+  text-align: center;
+  margin: 50px 0;
+}
+
+/* center the table title */
+.table-title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* style the search bar */
+.search_bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search_bar input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+}
+
+.search_bar button[type="submit"], .search_bar button.sort_by {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #000000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search_bar button.sort_by {
+  background-color: #008CBA;
+}
+
+/* center the table and its contents */
+.table-container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#collegelistTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#collegelistTable td, #collegelistTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#collegelistTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #000000;
+  color: white;
+}
+.university-name{
+  color: #0000ff;
+  text-decoration: underline blue;
+}
+

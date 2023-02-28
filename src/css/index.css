@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.banner{
+  height: 100vh;
+  background: url('../../images/party_wallpaper.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.welcome_text{
+  color: #000;
+  background-color: #fff;
+  width: 350px;
+  height: 100px;
+  position: relative;
+  padding: auto;
+  margin: 2px;
+  top: 50%;
+  border-radius: 10px;
+
+  left: 40px;
+  font-weight: bold;
+}
+
+.popular-destinations {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.destination-box {
+  width: 23%;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.destination-box img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.destination-box h3 {
+  font-size: 18px;
+  margin: 0;
+  color: #444;
+}
+
+/*about us css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Style the header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+/* Style the main content section */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main h2 {
+  font-size: 28px;
+  margin-top: 0;
+}
+
+main p {
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.footer {
+  bottom: 0;
+  background-color: #FCEFF6;
+  
+  width: 100%;
+  text-align: center;
+} 

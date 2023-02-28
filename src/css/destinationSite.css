@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+.Banner{
+    /*height: auto;*/
+    height: 200px;
+    background: url('../../images/party_wallpaper.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin: 0 0 10px;
+  }
+  
+  .icon {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .icon img {
+    max-width: 64px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  .location-image {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+  
+  .reviews {
+    display: inline-block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    margin: 20px 0;
+  }
+  
+  .description {
+    line-height: 1.5;
+  }
+  
+  .gallery {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+  }

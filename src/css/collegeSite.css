@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+.Banner{
+    /*height: auto;*/
+    height: 200px;
+    background: url('../../images/party_wallpaper.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+.university-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.university-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+.university-header img {
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+}
+
+.university-header p {
+  font-size: 18px;
+  color: #666;
+}
+
+.university-description {
+  margin-bottom: 30px;
+}
+
+.university-description p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.destination-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.destination {
+  width: 23%;
+  height: 300px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  float: left;
+}
+
+.destination img {
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+.destination h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.destination p {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.review-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.review-button:hover {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #333;
+}
