@@ -20,10 +20,10 @@
                     <i class="fas fa-times"></i>
                 </div>
                 <li><a href="../../index.php">Home</a></li>
-                <li><a href="../../aboutUs.php">About</a></li>
-                <li><a href="../../colleges.html">Colleges</a></li>
-                <li><a href="../../destinations.php">Destinations</a></li>
-                <li><a href="../../profile.html">My Profile</a></li>
+                <li><a href="src/php/aboutUs.php">About</a></li>
+                <li><a href="src/phpcolleges.php">Colleges</a></li>
+                <li><a href="src/php/destinations.php">Destinations</a></li>
+                <li><a href="src/php/profile.html">My Profile</a></li>
             </ul>
             <div class="icon menu-btn">
                 <i class="fas fa-bars"></i>
