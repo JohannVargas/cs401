@@ -5,7 +5,7 @@
   <title>University Details</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/DestinationSite.css">
+  <link rel="stylesheet" href="../css/destinationSite.css">
 </head>
 <body>
   <?php include "nav.php"; ?>
