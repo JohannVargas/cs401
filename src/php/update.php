@@ -35,11 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($isValid) {
         require 'pdo-connection.php';
-        try {
-            $pdo = new PDO($dsn, $db_user, $db_pass, $options);
-        } catch (PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
-        }
         // Check if new username already exists in the database
         $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :new_username');
         $stmt->bindParam(':new_username', $new_username);
