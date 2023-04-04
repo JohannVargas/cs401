@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+$username = '';
+if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
+    $username = $_SESSION['username'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +17,13 @@
     <link rel="stylesheet" href="src/css/footer.css">
 </head>
 <body>
-    <?php include "src/php/nav.php";?>
+    <?php 
+    if (!empty($username)) {
+      include "src/php/logged-in-nav.php";
+    } else {
+      include "src/php/nav.php";
+    }
+  ?>
     <div class="aboutBanner"></div>
     <div class="about-container">
         <h1>About Us</h1>

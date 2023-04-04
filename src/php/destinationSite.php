@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<?php include_once('dbh.inc.php');?>
+<?php include_once('dbh.inc.php');
+session_start();
+
+$username = '';
+if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
+    $username = $_SESSION['username'];
+}
+?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,14 +26,20 @@
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   ?>
-  <?php include "nav.php"; ?>
+   <?php 
+    if (!empty($username)) {
+      include "logged-in-nav.php";
+    } else {
+      include "nav2.php";
+    }
+  ?>
   <div class="Banner"></div>
   <div class="container">
     <?php
     echo "<h1>".$row['destinationname']."</h1>";
     echo "<p>".$row['statename']."</p>";
     ?>
-    <a href="#" class="reviews">Reviews</a>
+    <a href="destination-review.php?id=<?php echo $destinationID; ?>" class="reviews">Reviews</a>
     <?php 
     echo "<p class='description'>".$row['destination_description']."</p>";
     ?>

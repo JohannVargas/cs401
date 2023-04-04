@@ -9,7 +9,7 @@
     <nav class="navbar">
         <div class="content">
             <div class="logo"><a href="../../index.php">
-                <img src="images/logo.png" alt="Logo">
+                <img src="../../images/logo.png" alt="Logo">
             </a></div>
             <div class="search-bar">
                 <input type="text" placeholder="e.g. when is ASU'S Spring break">
@@ -23,8 +23,8 @@
                 <li><a href="../../AboutUs.php">About</a></li>
                 <li><a href="../../Colleges.php">Colleges</a></li>
                 <li><a href="../../Destinations.php">Destinations</a></li>
-                <li><a href="src/php/login.php">Login</a></li>
-                <li><a href="src/php/sign-up.php">Sign up</a></li>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="sign-up.php">Sign up</a></li>
             </ul>
             <div class="icon menu-btn">
                 <i class="fas fa-bars"></i>

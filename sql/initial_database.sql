@@ -2,6 +2,9 @@
 DROP TABLE IF EXISTS collegelist;
 DROP TABLE IF EXISTS states;
 DROP TABLE IF EXISTS destinations;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS college_reviews;
+DROP TABLE IF EXISTS destination_reviews;
 CREATE TABLE IF NOT EXISTS collegelist(
    ID    INTEGER  NOT NULL PRIMARY KEY 
   ,name  VARCHAR(58) NOT NULL
@@ -20,14 +23,36 @@ CREATE TABLE IF NOT EXISTS destinations(
   ,destination_description TEXT
   ,FOREIGN KEY (stateID) REFERENCES states(stateID)
 );
-INSERT INTO collegelist(ID,name,stateID,date) VALUES (1,'Abraham Baldwin Agricultural College','GA','3/18/2023 to 3/25/2023');
-INSERT INTO collegelist(ID,name,stateID,date) VALUES (2,'Adams State University','CO','3/18/2023 to 3/25/2024');
-INSERT INTO collegelist(ID,name,stateID,date) VALUES (3,'Adelphi University','NY','3/18/2023 to 3/25/2025');
-INSERT INTO collegelist(ID,name,stateID,date) VALUES (4,'Adrian College','MI','3/18/2023 to 3/25/2026');
-INSERT INTO states(stateID,statename) VALUES('GA','Georgia');
-INSERT INTO states(stateID,statename) VALUES('CO','Colorado');
-INSERT INTO states(stateID,statename) VALUES('NY','New York');
-INSERT INTO states(stateID,statename) VALUES('MI','Michigan');
+ CREATE TABLE college_reviews (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  college_id INT NOT NULL,
+  user_id INT NOT NULL,
+  review_text TEXT,
+  rating INT,
+  review_date DATE,
+  FOREIGN KEY (college_id) REFERENCES collegelist(ID),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+CREATE TABLE destination_reviews (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  destination_id INT NOT NULL, 	
+  user_id INT NOT NULL,
+  review_text TEXT,
+  rating INT,
+  review_date DATE,
+  FOREIGN KEY (destination_id) REFERENCES destinations(destinationID),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE users (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (username),
+    UNIQUE KEY (email)
+);
 INSERT INTO destinations(destinationname,stateID,destination_description) VALUES('Atlanta','GA',
 'The capital of Georgia is the perfect spring break destination if you are more inclined to cultural attractions and staying in a buzzing city. Visit the World of Coca Cola, the Georgia Aquarium, and the house of Martin Luther King Jr. Spend the afternoon laying under the sun in the Centennial Olympic Park or freshen up at the Six Flags White Water waterpark.');
 INSERT INTO destinations(destinationname,stateID,destination_description) VALUES('Savannah','GA',

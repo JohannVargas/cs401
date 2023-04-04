@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+.Banner {
+height: 200px;
+background: url('../../images/party_wallpaper.jpg') no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+/* container styles */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    }
+    
+    /* heading styles */
+    h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    }
+    
+    h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    }
+    
+    /* reviews list styles */
+    .reviews-list {
+    list-style: none;
+    margin-bottom: 30px;
+    }
+    
+    .reviews-list li {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+    
+    .reviews-list li h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    }
+    
+    .reviews-list li p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    }
+    
+    .reviews-list li .rating {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffc107;
+    margin-bottom: 10px;
+    }
+    
+    .reviews-list li .review-date {
+    font-size: 14px;
+    color: #999;
+    }
+    
+    /* form styles */
+    form {
+    margin-top: 30px;
+    }
+    
+    label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    }
+    
+    textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 15px;
+    }
+    
+    input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    }
+    
+    input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+    background-color: #3e8e41;
+    }

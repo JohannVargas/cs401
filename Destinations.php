@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+$username = '';
+$state = '';
+
+if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
+    $username = $_SESSION['username'];
+    if (isset($_SESSION['state'])) {
+        $state = $_SESSION['state'];
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +22,21 @@
     <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
-    <?php include "src/php/nav.php";?>
+<?php 
+    if (!empty($username)) {
+      include "src/php/logged-in-nav.php";
+    } else {
+      include "src/php/nav.php";
+    }
+  ?>
     <div class="Banner"></div>
     <h1 class="page-title">Best Destinations Around You</h1>
     <div class="page-description">
+        <?php if (!empty($state)) { ?>
+        <p>You are located in <?php echo $state; ?>.</p>
+        <?php } else { ?>
+        <p>Please log in to access your location information.</p>
+        <?php } ?>
         <p>Find your next adventure with our list of the best destinations around you! We've curated a list of top picks based on your current location to help you discover new places and make the most of your travels. Whether you're looking for a relaxing getaway or an action-packed trip, we've got you covered.</p>
     </div>
     <div class="destination-container">

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+}
+.Banner {
+height: 200px;
+background: url('../../images/party_wallpaper.jpg') no-repeat;
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+
+.FormWrapper {
+max-width: 400px;
+padding: 20px;
+background-color: #fff;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+h1 {
+text-align: center;
+font-size: 36px;
+font-weight: 600;
+margin-bottom: 20px;
+}
+
+.Error {
+color: #ff0000;
+padding: 10px;
+}
+
+.Form {
+display: flex;
+flex-wrap: wrap;
+}
+
+.FormRow {
+flex-basis: 100%;
+margin-bottom: 20px;
+}
+
+label {
+flex-basis: 150px;
+font-size: 16px;
+font-weight: 500;
+margin-right: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+flex-basis: calc(100% - 170px);
+font-size: 16px;
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+background-color: #007bff;
+color: #fff;
+font-size: 16px;
+font-weight: 500;
+padding: 10px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+background-color: #0062cc;
+}
+
+@media (max-width: 576px) {
+label {
+flex-basis: 100%;
+margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+flex-basis: 100%;
+}
+}

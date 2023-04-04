@@ -23,8 +23,7 @@
                 <li><a href="../../AboutUs.php">About</a></li>
                 <li><a href="../../Colleges.php">Colleges</a></li>
                 <li><a href="../../Destinations.php">Destinations</a></li>
-                <li><a href="src/php/login.php">Login</a></li>
-                <li><a href="src/php/sign-up.php">Sign up</a></li>
+                <li><a href="../../profile.php">My Profile</a></li>
             </ul>
             <div class="icon menu-btn">
                 <i class="fas fa-bars"></i>
