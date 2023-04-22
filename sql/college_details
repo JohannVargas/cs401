@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS collegedetails(
+   collegeID    INTEGER  NOT NULL PRIMARY KEY 
+  ,logo  VARCHAR(255) NOT NULL
+  ,description  TEXT NOT NULL
+  ,FOREIGN KEY (collegeID) REFERENCES collegelist(ID)
+);
+INSERT INTO collegedetails (collegeID, logo, description) 
+VALUES (68, 'images/BSU-logo.png', 'Boise State University has a lively nightlife scene, with plenty of bars, clubs, and music venues within walking distance of campus. Students often gather at places like The Reef and The Balcony Club for drinks and dancing.');
+
+INSERT INTO collegedetails (collegeID, logo, description) 
+VALUES (24, 'images/ASU-logo.png', 'Arizona State University is known for its vibrant party culture, with plenty of bars and clubs in the nearby college town of Tempe. Mill Avenue is a popular destination for students, with venues like The Marquee and El Hefe drawing big crowds.');
+
+INSERT INTO collegedetails (collegeID, logo, description) 
+VALUES (767, 'images/UI-logo.png', 'The University of Idaho may be in a small town, but it still has a thriving nightlife scene. Students often head to spots like The Garden Lounge and Eichardts Pub for drinks and live music, while downtown Moscow offers a variety of bars and restaurants.');
+
+INSERT INTO collegedetails (collegeID, logo, description) 
+VALUES (908, 'images/WSU-logo.png', 'Washington State University has a lively nightlife scene, with a wide variety of bars, clubs, and music venues catering to students. Some of the most popular spots include The Coug, The Garden, and Valhalla, all located just a short walk from campus.');

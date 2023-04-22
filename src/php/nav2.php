@@ -9,12 +9,9 @@
     <nav class="navbar">
         <div class="content">
             <div class="logo"><a href="../../index.php">
-                <img src="../../images/logo.png" alt="Logo">
+                <img src="../../images/logo2.png" alt="Logo">
             </a></div>
-            <div class="search-bar">
-                <input type="text" placeholder="e.g. when is ASU'S Spring break">
-                <button type="submit">Go</button>
-            </div>
+           
             <ul class="menu-list">
                 <div class="icon cancel-btn">
                     <i class="fas fa-times"></i>

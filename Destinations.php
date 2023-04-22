@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once "src/php/dbh.inc.php";
+
 $username = '';
 $state = '';
 
@@ -8,6 +10,29 @@ if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
     $username = $_SESSION['username'];
     if (isset($_SESSION['state'])) {
         $state = $_SESSION['state'];
+    }
+}
+
+$destinations = array();
+
+if (!empty($state)) {
+    $stateID_query = "SELECT stateID FROM states WHERE statename='$state';";
+    $stateID_result = mysqli_query($conn, $stateID_query);
+    if ($stateID_result && mysqli_num_rows($stateID_result) > 0) {
+        $stateID_row = mysqli_fetch_assoc($stateID_result);
+        $stateID = $stateID_row['stateID'];
+
+        $destinations_query = "SELECT destinationname, destination_description FROM destinations WHERE stateID='$stateID';";
+        $destinations_result = mysqli_query($conn, $destinations_query);
+        while ($destination_row = mysqli_fetch_assoc($destinations_result)) {
+            array_push($destinations, $destination_row);
+        }
+    } else {
+        // handle the case where the query returned no rows or an error occurred
+        // for example, you can set a default value for $stateID or display an error message
+        $stateID = 'ID'; // set a default value for $stateID
+        // display an error message to the user
+        echo "An error occurred while retrieving the state information.";
     }
 }
 
@@ -40,25 +65,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
         <p>Find your next adventure with our list of the best destinations around you! We've curated a list of top picks based on your current location to help you discover new places and make the most of your travels. Whether you're looking for a relaxing getaway or an action-packed trip, we've got you covered.</p>
     </div>
     <div class="destination-container">
+        <?php foreach ($destinations as $destination) { ?>
         <div class="destination">
             <a href="src/php/destinationSite.php">
-                <img src="src/images/destination1.jpg" alt="Destination 1">
-                <h2>Destination 1</h2>
+                <div class="destination-image"></div>
+                <h2><?php echo $destination['destinationname']; ?></h2>
             </a>
+            <p><?php echo $destination['destination_description']; ?></p>
         </div>
-        <div class="destination">
-                <img src="src/images/destination2.jpg" alt="Destination 2">
-                <h2>Destination 2</h2>
-
-        </div>
-        <div class="destination">
-                <img src="src/images/destination3.jpg" alt="Destination 3">
-                <h2>Destination 3</h2>
-        </div>
-        <div class="destination">
-                <img src="src/images/destination4.jpg" alt="Destination 4">
-                <h2>Destination 4</h2>
-        </div>
+        <?php } ?>
     </div>
 </body>
 </html>

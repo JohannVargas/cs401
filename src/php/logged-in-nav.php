@@ -1,20 +1,18 @@
 <style>
-<?php include '../css/nav.css'?>
+    <?php include '../css/nav.css'?>
 </style>
 <html>
-    <head>
-        <title>navbar</title>
-    </head>
-    <body>
+<head>
+    <title>navbar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/functions.js"></script>
+</head>
+<body>
     <nav class="navbar">
         <div class="content">
             <div class="logo"><a href="../../index.php">
-                <img src="images/logo.png" alt="Logo">
+                <img src="../../images/logo2.png" alt="Logo">
             </a></div>
-            <div class="search-bar">
-                <input type="text" placeholder="e.g. when is ASU'S Spring break">
-                <button type="submit">Go</button>
-            </div>
             <ul class="menu-list">
                 <div class="icon cancel-btn">
                     <i class="fas fa-times"></i>
@@ -29,29 +27,33 @@
                 <i class="fas fa-bars"></i>
             </div>
         </div>
-</nav>
-<script>
-        const body = document.querySelector("body");
-        const navbar = document.querySelector(".navbar");
-        const menu = document.querySelector(".menu-list");
-        const menuBtn = document.querySelector(".menu-btn");
-        const cancelBtn = document.querySelector(".cancel-btn");
-        menuBtn.onclick = () => {
-            menu.classList.add("active");
-            menuBtn.classList.add("hide");
-            cancelBtn.classList.add("show");
-            body.classList.add("disabledScroll");
-        }
-        cancelBtn.onclick = () => {
-            menu.classList.remove("active");
-            menuBtn.classList.remove("hide");
-            cancelBtn.classList.remove("show");
-            body.classList.remove("disabledScroll");
-        }
+    </nav>
+    <script>
+        $(document).ready(function() {
+  var body = $("body");
+  var navbar = $(".navbar");
+  var menu = $(".menu-list");
+  var menuBtn = $(".menu-btn");
+  var cancelBtn = $(".cancel-btn");
 
-        window.onscroll = () => {
-            this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
-        }
+  menuBtn.click(function() {
+      menu.addClass("active");
+      menuBtn.addClass("hide");
+      cancelBtn.addClass("show");
+      body.addClass("disabledScroll");
+  });
+
+  cancelBtn.click(function() {
+      menu.removeClass("active");
+      menuBtn.removeClass("hide");
+      cancelBtn.removeClass("show");
+      body.removeClass("disabledScroll");
+  });
+
+  $(window).scroll(function() {
+      this.scrollY > 20 ? navbar.addClass("sticky") : navbar.removeClass("sticky");
+  });
+});
     </script>
-    </body>    
+</body>
 </html>

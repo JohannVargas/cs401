@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.Banner {
+  height: 200px;
+  background: url('../../images/party_wallpaper.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.reviews {
+  background-color: #1310b3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.location-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
+.destination {
+    width: 20%;
+    height: 300px;
+    background:  url('../../images/party_wallpaper.jpg') no-repeat;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    margin-right: 5%;
+  }
+
+.destination-image {
+  width: 70%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  filter: blur(5px); /* make the background image blurry */
+}
+
+.destination p {
+  font-size: 24px; /* make the destination name smaller */
+  font-weight:600;
+  margin: 20px 0;
+  cursor: pointer;
+    color: #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+}

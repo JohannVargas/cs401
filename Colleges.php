@@ -20,6 +20,9 @@ if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
     <link rel="stylesheet" href="src/css/colleges.css">
     <link rel="stylesheet" href="src/css/styles.css">
     <link rel="stylesheet" href="src/css/footer.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="src/js/functions.js"></script>
+
 </head>
 <body>
 <?php 
@@ -39,15 +42,16 @@ if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
 <div class="table-container">
     <h2 class="table-title">SPRING BREAK 2023 DATES</h2>
     <div class="search_bar">
-        <input type="text" placeholder="e.g Boise State">
+    <form method="post">
+        <input type="text" placeholder="e.g Boise State" name="collegeName">
         <button type="submit">Go</button>
-        <button class="sort_by">sort by</button>
-        <select id="num_rows_select">
+        <select id="num_rows_select" name="limit">
             <option value="10" selected>10 Rows</option>
             <option value="25">25 Rows</option>
-            <option value="30">50 Rows</option>
+            <option value="50">50 Rows</option>
             <option value="1000">1000 Rows</option>
         </select>
+    </form>
     </div>
     <table id="collegelistTable">
         <thead class="tablehead">
@@ -79,21 +83,31 @@ if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
   <?php include "src/php/footer.php"; ?>  
     <?php include "src/php/footer.php"; ?>  
     <script>
-            const numRowsSelect = document.getElementById("num_rows_select");
-    numRowsSelect.addEventListener("change", function() {
-        const limit = this.value;
-        const url = `src/php/fetch-collegelist.php?limit=${limit}`;
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                const tableBody = document.getElementById("collegelistTableBody");
-                tableBody.innerHTML = data;
-            })
-            .catch(error => console.error(error));
-    });
-    function goToCollegeSite(collegeName,ID) {
-    window.location.href = "src/php/collegeSite.php?name=" + encodeURIComponent(collegeName)+"&id=" + encodeURIComponent(ID);
-    }
-    </script>
+
+$(document).ready(function() {
+  $("button[type='submit']").click(function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+      var collegeName = $("input[name='collegeName']").val();
+$.ajax({
+  type: "POST",
+  url: "src/php/search-collegelist.php",
+  data: { search: collegeName },
+  success: function(data) {
+      $("#collegelistTableBody").html(data);
+  }
+});
+  });
+});
+$(document).ready(function() {
+  const numRowsSelect = $('#num_rows_select');
+  numRowsSelect.change(function() {
+      const limit = this.value;
+      const url = `src/php/fetch-collegelist.php?limit=${limit}`;
+      $.get(url, function(data) {
+          $('#collegelistTableBody').html(data);
+      });
+  });
+});
+    </script>    
 </body>
 </html>
