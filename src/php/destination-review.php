@@ -1,13 +1,42 @@
+<!DOCTYPE html>
+<?php 
+include_once('dbh.inc.php');
+session_start();
 
+$username = '';
+if (isset($_SESSION['username']) && isset($_SESSION['email'])) {
+    $username = $_SESSION['username'];
+}
+
+$destinationID = $_GET['id'];
+
+$sql = "SELECT destinations.destinationname, states.statename
+FROM destinations
+JOIN states ON destinations.stateID = states.stateID
+WHERE destinations.destinationID = '$destinationID'
+";
+
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$destinationname = $row['destinationname'];
+$statename = $row['statename'];
+
+$sql = "SELECT destination_reviews.*, users.username
+FROM destination_reviews
+JOIN users ON destination_reviews.user_id = users.id
+WHERE destination_reviews.destination_id = '$destinationID'
+ORDER BY destination_reviews.review_date DESC
+";
+
+$result = mysqli_query($conn, $sql);
 if(isset($_POST['review_text']) && isset($_POST['rating'])) {
-    $review_text = htmlspecialchars($_POST['review_text'], ENT_QUOTES, 'UTF-8');
-    $rating = htmlspecialchars($_POST['rating'], ENT_QUOTES, 'UTF-8');
+    $review_text = mysqli_real_escape_string($conn, $_POST['review_text']);
+    $rating = mysqli_real_escape_string($conn, $_POST['rating']);
     $user_id = $_SESSION['id'];
     $date = date('Y-m-d');
-    $stmt = $conn->prepare("INSERT INTO destination_reviews (destination_id, user_id, review_text, rating, review_date)
-            VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisss", $destinationID, $user_id, $review_text, $rating, $date);
-    $stmt->execute();
+    $sql = "INSERT INTO destination_reviews (destination_id, user_id, review_text, rating, review_date)
+            VALUES ('$destinationID', '$user_id', '$review_text', '$rating', '$date')";
+    mysqli_query($conn, $sql);
 
     header('Location: '.$_SERVER['PHP_SELF'].'?id='.$collegeID);
     exit();
@@ -40,19 +69,19 @@ if(isset($_POST['review_text']) && isset($_POST['rating'])) {
     } else {
       while ($row = mysqli_fetch_assoc($result)) {
         echo "<li class='review'>";
-        echo "<h3 class='username'>" . htmlspecialchars($row['username'],ENT_QUOTES) . "</h3>";
-        echo "<p class='review-text'>" . htmlspecialchars($row['review_text'],ENT_QUOTES) . "</p>";
-        echo "<div class='rating'>" . htmlspecialchars($row['rating'],ENT_QUOTES) . "</div>";
-        echo "<div class='review-date'>" . htmlspecialchars($row['review_date'],ENT_QUOTES) . "</div>";
+        echo "<h3 class='username'>" . $row['username'] . "</h3>";
+        echo "<p class='review-text'>" . $row['review_text'] . "</p>";
+        echo "<div class='rating'>" . $row['rating'] . "</div>";
+        echo "<div class='review-date'>" . $row['review_date'] . "</div>";
         echo "</li>";
       }
     }
     ?>
     </ul>
-    <?php if (!empty($username)): ?>
+      <?php if (!empty($username)): ?>
       <h2 class="heading">Submit a Review</h2>
       <form class="review-form" action="" method="POST">
-        <input type="hidden" name="college_id" value="<?php echo htmlspecialchars($destinationID, ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="hidden" name="college_id" value="<?php echo $destinationID; ?>">
         <div class="form-group">
           <label for="review_text">Review:</label>
           <textarea name="review_text" id="review_text" rows="5" cols="30" class="form-control"></textarea>

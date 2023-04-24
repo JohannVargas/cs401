@@ -84,7 +84,7 @@ $(document).ready(function() {
       left: 'initial',
       top: 'initial',
       marginTop: '0',
-      marginbottom: '10px'
+      marginbottom: '15px'
     }, );
   });
 });
